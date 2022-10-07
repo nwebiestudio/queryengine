@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import { useGetTestQuery } from './redux';
 import {ITest} from './models/testApi'
+import Authorization from './components/Authorization';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <div className="flex items-center justify-center">
-      <button
+      {/* <button
         className="cursor-pointer border-2 border-blue-500 bg-black text-white hover:text-black hover:bg-white"
         onClick={() => {
           if (!isLoading) {
@@ -21,7 +22,8 @@ function App() {
       >
         Получить данные!
       </button>
-      <div>{get?.message}</div>
+      <div>{get?.message}</div> */}
+      <Authorization/>
     </div>
   );
 }
