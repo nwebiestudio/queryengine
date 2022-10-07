@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { useGetTestQuery } from './redux';
+import {ITest} from './models/testApi'
 
 
 function App() {

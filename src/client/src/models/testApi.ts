@@ -1,3 +1,3 @@
 export interface ITest {
-    massage: string
+    message: string
 }
