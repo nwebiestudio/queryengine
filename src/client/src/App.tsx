@@ -1,9 +1,8 @@
-
-import React, {useState} from 'react';
-import { useGetTestQuery } from './redux';
-import {ITest} from './models/testApi'
-import Authorization from './components/Authorization';
-
+import React, { useState } from "react";
+import { useGetTestQuery } from "./redux";
+import { ITest } from "./models/testApi";
+import Authorization from "./components/Authorization";
+import Test from "./components/TestComponent/Test";
 
 function App() {
   const { data, isLoading } = useGetTestQuery("");
@@ -23,7 +22,7 @@ function App() {
         Получить данные!
       </button>
       <div>{get?.message}</div> */}
-      <Authorization/>
+      <Test />
     </div>
   );
 }
