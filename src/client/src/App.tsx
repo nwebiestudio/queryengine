@@ -9,9 +9,9 @@ function App() {
   console.log(data);
 
   return (
-    <div className="flex items-center flex-col justify-center w-screen h-screen">
+    <div className="flex items-center justify-center">
       <button
-        className="cursor-pointer border-2 border-slate-500 p-3 rounded-md bg-black text-white hover:text-black hover:bg-white transition-all duration-200"
+        className="cursor-pointer border-2 border-blue-500 bg-black text-white hover:text-black hover:bg-white"
         onClick={() => {
           if (!isLoading) {
             setGet(data);
@@ -20,9 +20,7 @@ function App() {
       >
         Получить данные!
       </button>
-      <div className="mt-10 p-3 bg-neutral-600 rounded text-white min-w-[300px] min-h-[100px]">
-        {get?.message}
-      </div>
+      <div>{get?.message}</div>
     </div>
   );
 }
