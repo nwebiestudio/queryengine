@@ -154,4 +154,4 @@ src/client/yarn-debug.log*
 src/client/yarn-error.log*
 
 src/client/.node_repl_history
-src/client/.next#
+src/client/.next
