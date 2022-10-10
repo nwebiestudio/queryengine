@@ -1,9 +1,19 @@
-import React from "react";
+import "./Authorization.module.css";
+import React, { LegacyRef, Ref, useEffect, useRef, useState } from "react";
 
-export default function Authorization() {
+export const Authorization = () => {
+  const [open, setOpen] = useState<boolean>(false);
+  const modal = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (open) {
+    }
+  }, [open]);
   return (
-    <div className="flex flex-col justify-center items-center w-screen h-screen">
-      <form className="flex flex-col justify-center items-center w-[400px] h-[500px] border-2 rounded-xl border-blue-800 shadow-2xl">
+    <div
+      ref={modal}
+      className="flex flex-col justify-center items-center w-screen h-screen"
+    >
+      <form className="flex flex-col justify-center items-center w-[400px] h-[500px] border-2 rounded-xl border-blue-800 bg-white shadow-2xl">
         <h1 className="text-3xl mb-[70px]">Вход в систему:</h1>
         <input
           type="login"
@@ -32,4 +42,4 @@ export default function Authorization() {
       </form>
     </div>
   );
-}
+};
