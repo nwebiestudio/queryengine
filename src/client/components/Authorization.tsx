@@ -1,19 +1,34 @@
 import "./Authorization.module.css";
-import React, { LegacyRef, Ref, useEffect, useRef, useState } from "react";
+import React, {useState} from "react";
+import Router from 'next/router';
+import Link from "next/link";
+import { useAnimateModal } from "../hooks/animateModal";
 
 export const Authorization = () => {
-  const [open, setOpen] = useState<boolean>(false);
-  const modal = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (open) {
-    }
-  }, [open]);
+  const [open, setOpen] = useState<boolean>(false)
+  const modal = useAnimateModal('-translate-y-full', open)
   return (
+    <div className="absolute hover:cursor-pointer  closeHandler w-screen h-screen right-0 left-0 top-0 bottom-0 z-10 bg-black bg-opacity-20"
+    onClick={(event: React.MouseEvent<HTMLDivElement>) => {
+      const element = event.target as Element
+      console.log(element.classList);
+      
+      if (element.classList.contains('closeHandler')){
+        setOpen(true)
+      const timer = setTimeout(()=> {
+        Router.back()
+        }, 300)
+        return () => {clearTimeout(timer)}
+      }
+      
+    }}>
+      
     <div
       ref={modal}
-      className="flex flex-col justify-center items-center w-screen h-screen"
+      className="flex flex-col  closeHandler justify-center items-center z-30 w-screen h-screen -translate-y-full transition-all duration-300"
     >
-      <form className="flex flex-col justify-center items-center w-[400px] h-[500px] border-2 rounded-xl border-blue-800 bg-white shadow-2xl">
+      <div>
+      <form className="flex flex-col z-50 justify-center items-center w-[400px] h-[500px] bo border-2 rounded-xl cursor-default border-blue-800 bg-white shadow-2xl">
         <h1 className="text-3xl mb-[70px]">Вход в систему:</h1>
         <input
           type="login"
@@ -36,10 +51,16 @@ export const Authorization = () => {
             Забыли пароль?
           </a>
         </div>
-        <button className="mt-7 border-2 px-14 py-2 rounded-3xl bg-green-700 text-white fontMain text-md shadow-md hover:bg-green-900  ">
+        <Link href={"/register"}>
+        <a className="mt-7 border-2 px-14 py-2 rounded-3xl bg-green-700 text-white fontMain text-md shadow-md hover:bg-green-900 "
+        >
           Регистрация
-        </button>
+        </a>
+        </Link>
       </form>
+      </div>
+    </div>
     </div>
   );
+  
 };

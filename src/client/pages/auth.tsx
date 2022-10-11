@@ -7,9 +7,8 @@ import HomePage from "./index";
 function Auth() {
   return (
     <>
-      <div className="absolute right-0 left-0 top-0 bottom-0 z-10 bg-black bg-opacity-20">
-        <Authorization />
-      </div>
+       <Authorization />
+    
       <Main />
     </>
   );
